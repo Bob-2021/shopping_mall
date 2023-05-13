@@ -15,6 +15,9 @@
         <module>shopping_mall-order</module>
         <module>shopping_mall-product</module>
         <module>shopping_mall-ware</module>
+        <module>renren-fast</module>
+        <module>renren-generator</module>
+        <module>shopping_mall-common</module>
     </modules>
 
 </project>
