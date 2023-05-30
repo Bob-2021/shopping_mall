@@ -6,10 +6,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
+
 @SpringBootTest
 class ShoppingMallProductApplicationTests {
     @Autowired
     BrandService brandService;
+
 
     @Test
     void contextLoads() {
@@ -18,5 +21,6 @@ class ShoppingMallProductApplicationTests {
         brandEntity.setName("name2");
         brandService.save(brandEntity);
     }
+
 
 }

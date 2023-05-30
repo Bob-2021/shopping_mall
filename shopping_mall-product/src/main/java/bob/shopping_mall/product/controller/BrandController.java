@@ -5,7 +5,9 @@ import java.util.Map;
 
 import bob.shopping_mall.common.utils.PageUtils;
 import bob.shopping_mall.common.utils.R;
+import bob.shopping_mall.common.valid.AddGroup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -55,8 +57,8 @@ public class BrandController {
      * 保存
      */
     @RequestMapping("/save")
-    public R save(@RequestBody BrandEntity brand){
-		brandService.save(brand);
+    public R save(@Validated({AddGroup.class}) @RequestBody BrandEntity brand){
+        brandService.save(brand);
 
         return R.ok();
     }
@@ -66,7 +68,7 @@ public class BrandController {
      */
     @RequestMapping("/update")
     public R update(@RequestBody BrandEntity brand){
-		brandService.updateById(brand);
+		brandService.updateDetail(brand);
 
         return R.ok();
     }

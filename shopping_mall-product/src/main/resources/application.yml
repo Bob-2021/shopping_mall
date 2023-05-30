@@ -8,6 +8,11 @@ spring:
     nacos:
       discovery:
         server-addr: localhost:8848
+    alicloud:
+      access-key: LTAI5tAjsFNKaMkt3PTHvxZE
+      secret-key: G7NPYFvYny7ULGZL9nRoK1aKWfDMPX
+      oss:
+        endpoint: oss-cn-guangzhou.aliyuncs.com
   application:
     name: shoppingmall-product
 mybatis-plus:
@@ -15,3 +20,5 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0

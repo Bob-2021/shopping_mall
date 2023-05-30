@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    alicloud:
+      access-key: LTAI5tAjsFNKaMkt3PTHvxZE
+      secret-key: G7NPYFvYny7ULGZL9nRoK1aKWfDMPX
+      oss:
+        endpoint: oss-cn-guangzhou.aliyuncs.com
+  application:
+    name: shoppingmall-third-party
+data:
+  val: 1234

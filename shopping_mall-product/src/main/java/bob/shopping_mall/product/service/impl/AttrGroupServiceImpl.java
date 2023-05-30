@@ -1,7 +1,10 @@
 package bob.shopping_mall.product.service.impl;
 
+import bob.shopping_mall.common.utils.Constant;
 import bob.shopping_mall.common.utils.PageUtils;
 import bob.shopping_mall.common.utils.Query;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -25,6 +28,34 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public PageUtils queryPage(Map<String, Object> params, Long catelogId) {
+        String key = (String)params.get("key");
+        QueryWrapper<AttrGroupEntity> wrapper = new QueryWrapper<>();
+        if(!StringUtils.isEmpty(key)){
+            wrapper.and((obj)->{
+                obj.eq("attr_group_id", key).or().like("attr_group_name", key);
+
+            });
+        }
+
+        if(catelogId == 0){
+
+            IPage<AttrGroupEntity> page = this.page(
+                    new Query<AttrGroupEntity>().getPage(params),
+                    wrapper
+            );
+            return new PageUtils(page);
+        }else{
+            wrapper.eq("catelog_id", catelogId);
+            IPage<AttrGroupEntity> page = this.page(
+                    new Query<AttrGroupEntity>().getPage(params),
+                    wrapper
+            );
+            return new PageUtils(page);
+        }
     }
 
 }
