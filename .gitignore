@@ -13,4 +13,7 @@
 
 .idea
 
+.yml
+.properties
+
 **/.gitignore
